@@ -15,9 +15,6 @@ fn main() {
             let out_dir = env::var_os("OUT_DIR").expect("Invalid OUT_DIR.");
             let file = Path::new(path.file_stem().expect("Invalid file_stem."));
             let dst = Path::new(&out_dir).join(file);
-            let mut registry = syntex::Registry::new();
-            pnet_macros::register(&mut registry);
-            registry.expand("", &src, &dst).expect("Failed to build");
         }
     }
 }
